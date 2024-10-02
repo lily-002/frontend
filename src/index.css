@@ -1,0 +1,102 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'); */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  @font-face {
+    font-family: 'Poppins';
+    src: url("/fonts/Poppins-Regular.ttf");
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-color: #238DC1;
+  --secondary-color: #F16021;
+  --bg-color: #FEFEFE;
+  --text-black: #333333;
+  --text-white: #fff;
+}
+
+body {
+  width: 100%;
+  max-width: 2000px;
+  height: 100%;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+  scrollbar-width: 0.2rem;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-black);
+}
+
+::-webkit-scrollbar {width: 0.2rem;}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    transition: all 0.4s ease-in-out;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+}
+
+
+.container {width: 100%;margin: auto;padding: 0 1rem;}
+
+/* React skeletal */
+.skeletal {
+  overflow: hidden;
+}
+.skeletal::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: linear-gradient(to right, #fff 0%, #cbcbcb 200%);
+  animation: skeletal_trans 1s linear forwards infinite;
+}
+
+@keyframes skeletal_trans {
+  0% { transform: translateX(-100%);}
+  100% { transform: translateX(100%);}
+}
+
+.addUser{
+  @apply bg-primary text-xs text-white rounded-full text-center py-2 px-4 mt-5
+}
+
+@page {
+  size: A4;
+  margin: 1.2rem 1rem;
+}
+
+/* @print {
+  ::-webkit-scrollbar {width: 0;}
+  
+  ::-webkit-scrollbar-thumb {
+      border-radius: 0.5rem;
+      background-color: white;
+      transition: all 0.4s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-track {
+      background-color: white;
+  }
+} */

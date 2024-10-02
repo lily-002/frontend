@@ -1,0 +1,9 @@
+.loader_container {
+    transform: scale(0.8);
+    animation: scale 1s ease-in-out forwards infinite;
+}
+
+
+@keyframes scale {
+    50% {transform: scale(1);}
+}
