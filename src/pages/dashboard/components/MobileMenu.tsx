@@ -84,15 +84,6 @@ const MobileMenu = ({ showMobileMenu, handleClose }: MobileMenuProps) => {
                     </span>
                     <span>{t("description.navigation.buy_credit")}</span>
                 </Link>
-
-                <Link to="/dashboard/form" className="flex justify-start items-center gap-3">
-  <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden"
-    style={{backgroundImage: `url('${i18n.language === "en" ? creditIconEn : creditIconTr}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-  </span>
-  <span>{t("Form")}</span>
-</Link>
-
-
             </div>
         </div>
     </div>

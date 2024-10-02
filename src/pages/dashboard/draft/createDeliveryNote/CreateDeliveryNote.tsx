@@ -446,7 +446,7 @@ const CreateDeliveryNote = () => {
                   </div>
                 </div>
 
-                {/* <div className="flex items-center">
+                <div className="flex items-center">
                   <label className="w-36 text-left lg:pr-4 text-black" htmlFor="despatch_date">{t("description.dashboard.dispatch_date")}<span className="text-tertiary pb-3">*</span></label>
                   <div>
                     <input type="date" id="despatch_date"
@@ -456,43 +456,43 @@ const CreateDeliveryNote = () => {
                     />
                     {errors.despatch_date ? <p className="text-secondary mt-1">{t("description.errors.input_field_is_required")}</p> : null}
                   </div>
-                </div> */}
+                </div>
 
-                {/* <div className="flex items-center">
+                <div className="flex items-center">
                   <label className="w-36 text-left pr-4 text-black" htmlFor="dispatch_ID">{t("description.dashboard.dispatch_ID")}:</label>
                   <div className="relative flex-1">
                     <input type="text" name="despatch_date" value={formValues.despatch_id}  readOnly
                       className="border-2 p-2 outline-none rounded transition-all py-1 w-20 lg:w-auto"
                     />
                   </div>
-                </div> */}
+                </div>
 
                 {
-                  // roles && roles.includes("admin") ? (
-                  //   <div className="flex items-center">
-                  //     <label className="w-36 text-left pr-4 text-black" htmlFor="despatch_type_id">{t("description.dashboard.company_name")}<span className="text-tertiary pb-3">*</span></label>
-                  //     <div className="relative flex-1">
-                  //         {companyLoader ? <span className="inline-block w-[18px] min-w-[18px] h-[18px] rounded-full border-2 border-b-transparent border-primary animate-spin"></span> : null}
-                  //         {!companyLoader && companyMessage ? (<p className="text-[#F16021] bg-[#f15f213c] text-center mx-auto mt-12 p-2 rounded">{companyMessage}</p>) : null}
-                  //         {!companyLoader && !companyMessage ? (
-                  //         <div>
+                  roles && roles.includes("admin") ? (
+                    <div className="flex items-center">
+                      <label className="w-36 text-left pr-4 text-black" htmlFor="despatch_type_id">{t("description.dashboard.company_name")}<span className="text-tertiary pb-3">*</span></label>
+                      <div className="relative flex-1">
+                          {companyLoader ? <span className="inline-block w-[18px] min-w-[18px] h-[18px] rounded-full border-2 border-b-transparent border-primary animate-spin"></span> : null}
+                          {!companyLoader && companyMessage ? (<p className="text-[#F16021] bg-[#f15f213c] text-center mx-auto mt-12 p-2 rounded">{companyMessage}</p>) : null}
+                          {!companyLoader && !companyMessage ? (
+                          <div>
                               
-                  //             <input type="text" readOnly className="-z-10 absolute top-0 left-0 opacity-0" {...register("company_id", {required: true})} />
-                  //             <SelectOptions
-                  //                 title="Company"
-                  //                 selectedOption={formValues.company_id as string}
-                  //                 setSelectedOption={(userSelection) => setValue("company_id", userSelection)}
-                  //                 options={companies.map(company => company.company_name)}
-                  //                 className="border border-[#D9D9D9] rounded outline-primary transition-all p-2"
-                  //                 top="top-8"
-                  //             />
-                  //             {/* {!formValues.company_id && errors.company_id ? <p className="text-secondary mt-1">{t("description.errors.input_field_is_required")}</p> : null} */}
-                  //         </div>
+                              <input type="text" readOnly className="-z-10 absolute top-0 left-0 opacity-0" {...register("company_id", {required: true})} />
+                              <SelectOptions
+                                  title="Company"
+                                  selectedOption={formValues.company_id as string}
+                                  setSelectedOption={(userSelection) => setValue("company_id", userSelection)}
+                                  options={companies.map(company => company.company_name)}
+                                  className="border border-[#D9D9D9] rounded outline-primary transition-all p-2"
+                                  top="top-8"
+                              />
+                              {!formValues.company_id && errors.company_id ? <p className="text-secondary mt-1">{t("description.errors.input_field_is_required")}</p> : null}
+                          </div>
 
-                  //         ) : null}
-                  //     </div>
-                  //   </div>
-                  // ) : null
+                          ) : null}
+                      </div>
+                    </div>
+                  ) : null
                 }
 
                 <div className="flex items-center">

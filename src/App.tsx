@@ -200,11 +200,6 @@ const App = () => {
             {/* Credit */}
             <Route path="buy-credit" element={<BuyCredit />} />
 
-            {/* form */}
-
-            <Route path="form" element={<form/>} />
-
-
             {/* Generate invoices */}
             {/* <Route path="invoices/e-invoice/:invoiceId" element={<GenerateInvoice /> } /> */}
             

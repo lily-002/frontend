@@ -18,6 +18,7 @@ import creditIconEn from "../../../assets/icons/Buy Credi - En.png";
 import creditIconTr from "../../../assets/icons/Buy Credi - Tr.png";
 import producerIcon from "../../../assets/icons/Producer Receipt.png";
 
+
 interface SideNavProps {
   collapse: boolean;
 }
@@ -26,18 +27,21 @@ const SideNav = ({ collapse }: SideNavProps) => {
   const roles = useRoles();
   const { t, i18n } = useTranslation();
 
+
   const linkIcons: any = {
-    "meaning": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{ backgroundImage: `url('${meaningIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}></span>,
-    "draft": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{ backgroundImage: `url('${draftIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}></span>,
-    "outgoing invoice": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{ backgroundImage: `url('${invoiceIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}></span>,
-    "outgoing delivery note": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{ backgroundImage: `url('${deliveryIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}></span>,
-    "outgoing producer receipt": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{ backgroundImage: `url('${producerIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}></span>,
-  };
+    "meaning": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{backgroundImage: `url('${meaningIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}></span>,
+    "draft": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{backgroundImage: `url('${draftIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}></span>,
+    // "invoice received": <ArchiveTray size={20} color="#fff" weight="regular" className="w-[20px] min-w-[20px]" />,
+    "outgoing invoice": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{backgroundImage: `url('${invoiceIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}></span>,
+    "outgoing delivery note": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{backgroundImage: `url('${deliveryIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}></span>,
+    // "incoming delivery note": <Notebook size={20} color="#fff" weight="regular" className="w-[20px] min-w-[20px]" />,
+    "outgoing producer receipt": <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden" style={{backgroundImage: `url('${producerIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}></span>,
+  }
 
   const filteredSideLinks = (() => {
-    if (roles && roles.includes("admin")) { return dashboardSideLinks }
+    if(roles && roles.includes("admin")){ return dashboardSideLinks }
 
-    const sideLinks = { ...dashboardSideLinks };
+    const sideLinks = {...dashboardSideLinks};
     delete sideLinks.meaning;
     return sideLinks;
   })();
@@ -53,7 +57,7 @@ const SideNav = ({ collapse }: SideNavProps) => {
       <div className="pb-4 px-4">
         <Link to="/dashboard" className="flex justify-start items-center gap-3 mb-8">
           <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden"
-            style={{ backgroundImage: `url(${dashboardIcon})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+            style={{backgroundImage: `url(${dashboardIcon})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
           </span>
           <span>{t("description.navigation.dashboard")}</span>
         </Link>
@@ -72,28 +76,20 @@ const SideNav = ({ collapse }: SideNavProps) => {
 
         <Link to="/dashboard/e-ledgers" className="flex justify-start items-center gap-3 mb-8">
           <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden"
-            style={{ backgroundImage: `url('${eLedgerIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+            style={{backgroundImage: `url('${eLedgerIcon}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
           </span>
           <span>{t("description.navigation.E_Ledger")}</span>
         </Link>
 
-        <Link to="/dashboard/buy-credit" className="flex justify-start items-center gap-3 mb-8"> {/* Added mb-8 for spacing */}
+        <Link to="/dashboard/buy-credit" className="flex justify-start items-center gap-3">
           <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden"
-            style={{ backgroundImage: `url('${i18n.language === "en" ? creditIconEn : creditIconTr}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+            style={{backgroundImage: `url('${i18n.language === "en" ? creditIconEn : creditIconTr}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
           </span>
           <span>{t("description.navigation.buy_credit")}</span>
         </Link>
-
-        <Link to="/dashboard/form" className="flex justify-start items-center gap-3">
-  <span className="inline-block w-[20px] min-w-[20px] h-[20px] overflow-hidden"
-    style={{backgroundImage: `url('${i18n.language === "en" ? creditIconEn : creditIconTr}')`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-  </span>
-  <span>{t("Form")}</span>
-</Link>
-
       </div>
     </>
   )
 }
 
-export default SideNav;
+export default SideNav

@@ -83,6 +83,7 @@ const CreateELedger = () => {
         const status = eLedgerStatuses.find(st => st.name === formData.status_id);
         formDataPayload.status_id = status?.id as number | string;
         const company = companies.find(cp => cp.company_name === formData.company_id);
+        formDataPayload.company_id = company?.id as number | string;
 
 
         setLoading(true);
